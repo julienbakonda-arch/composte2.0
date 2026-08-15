@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>compostage2.0 — Connexion</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+   <div class="brand">
+      
+      <img src="iconify.png" alt="Compostage 2.0 - Logo" class="logo-img">
+      <img src="logo.png" alt="Compostage 2.0 - Logo" class="logo-img">
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">Carte</a>
+      <a href="bibliotheque.html">Bibliothèque</a>
+      <a href="host.html">Espace hôte</a>
+      <a href="connexion.html" class="btn btn-primary btn-small">Connexion</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section id="connexion" class="panel auth-panel">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Connexion & Inscription</span>
+          <h2>Accéder à votre compte</h2>
+        </div>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="Choix de connexion">
+        <button type="button" class="auth-tab active" data-auth-tab="admin">Admin</button>
+        <button type="button" class="auth-tab" data-auth-tab="host">Hôte</button>
+        <button type="button" class="auth-tab" data-auth-tab="register">Créer un compte hôte</button>
+      </div>
+
+      <div class="auth-box">
+        <form id="admin-login-form" class="auth-form active">
+          <h3>Connexion Admin</h3>
+          <label>
+            Email admin
+            <input type="email" value="admin@compostage.local" readonly>
+          </label>
+          <label>
+            Mot de passe
+            <input type="password" id="admin-pass" placeholder="Entrez le mot de passe" required>
+          </label>
+          <button type="submit" class="btn btn-primary">Se connecter comme admin</button>
+        </form>
+
+        <form id="host-login-form" class="auth-form">
+          <h3>Connexion Hôte</h3>
+          <label>
+            Email
+            <input type="email" id="host-login-email" placeholder="hote@email.com" required>
+          </label>
+          <label>
+            Mot de passe
+            <input type="password" id="host-login-pass" placeholder="Votre mot de passe" required>
+          </label>
+          <button type="submit" class="btn btn-primary">Se connecter comme hôte</button>
+        </form>
+
+        <form id="host-register-form" class="auth-form">
+          <h3>Créer un compte hôte</h3>
+          <label>
+            Nom
+            <input type="text" id="host-name" placeholder="Noms et prénom" required>
+          </label>
+          <label>
+            Email
+            <input type="email" id="host-email" placeholder="votre@email.com" required>
+          </label>
+          <label>
+            Numéro de téléphone
+            <input type="tel" id="host-phone" placeholder="+257 68 000 00" required>
+          </label>
+          <label>
+            Mot de passe
+            <input type="password" id="host-password" placeholder="Créez un mot de passe" required>
+          </label>
+          <button type="submit" class="btn btn-secondary">Créer mon compte hôte</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/connexion.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>

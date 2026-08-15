@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>compostage2.0 — Bibliothèque</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+   <div class="brand">
+      
+      <img src="iconify.png" alt="Compostage 2.0 - Logo" class="logo-img">
+      <img src="logo.png" alt="Compostage 2.0 - Logo" class="logo-img">
+    </div>
+    <nav class="main-nav d-flex align-items-center flex-wrap gap-2" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">Carte</a>
+      <a href="bibliotheque.html">Bibliothèque</a>
+      <a href="host.html">Espace hôte</a>
+      <a href="connexion.html" class="btn btn-primary btn-small">Connexion</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section id="bibliotheque" class="panel">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Bibliothèque libre</span>
+          <h2>Ressources de la communauté</h2>
+        </div>
+        <button id="add-resource" type="button" class="btn btn-primary">Proposer une ressource</button>
+      </div>
+      <div id="library-grid" class="library-grid"></div>
+    </section>
+  </main>
+
+  <div id="resource-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resource-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="resource-modal-title">Proposer une ressource</h3>
+        <button type="button" class="close-modal" data-close="resource-modal">×</button>
+      </div>
+      <form id="resource-form">
+        <label>
+          Titre
+          <input type="text" name="title" required>
+        </label>
+        <label>
+          Description
+          <textarea name="description" rows="3" required></textarea>
+        </label>
+        <div class="field-row two-col">
+          <label>
+            Catégorie
+            <select name="category" required>
+              <option value="Livre">Livre</option>
+              <option value="Guide">Guide</option>
+              <option value="Vidéo">Vidéo</option>
+              <option value="Lien">Lien</option>
+            </select>
+          </label>
+          <label>
+            Lien de la ressource
+            <input type="url" name="contentLink" placeholder="https://...">
+          </label>
+        </div>
+        <label>
+          Ajouter un fichier PDF ou TXT
+          <input type="file" name="contentFile" accept=".pdf,.txt,.doc,.docx">
+        </label>
+        <label>
+          URL de la couverture
+          <input type="url" name="coverUrl" placeholder="https://...">
+        </label>
+        <label>
+          Ajouter une image de couverture
+          <input type="file" name="coverFile" accept="image/*">
+        </label>
+        <button type="submit" class="btn btn-primary submit-btn">Soumettre pour validation</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/bibliotheque.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>

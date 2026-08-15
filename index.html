@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>compostage2.0 — Accueil</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+
+
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      
+      <img src="iconify.png" alt="Compostage 2.0 - Logo" class="logo-img">
+      <img src="logo.png" alt="Compostage 2.0 - Logo" class="logo-img">
+    </div>
+    <nav class="main-nav d-flex align-items-center flex-wrap gap-2" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">Carte</a>
+      <a href="bibliotheque.html">Bibliothèque</a>
+      <a href="host.html">Espace hôte</a>
+      <a href="connexion.html" class="btn btn-primary btn-small">Connexion</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero panel">
+      <div class="hero-copy">
+        <span class="eyebrow">Collectif de compostage urbain</span>
+        <h1>Trouvez un bac, devenez hôte et partagez des ressources fiables.</h1>
+        <p>Une plateforme simple, moderne et collaborative pour localiser les bacs à proximité, signaler un emplacement douteux et modérer les contenus de la bibliothèque participative.</p>
+        <div class="cta-row d-flex flex-wrap align-items-center gap-2">
+          <a href="carte.html" class="btn btn-primary">Voir les bacs</a>
+          <a href="host.html" class="btn btn-secondary">Créer un espace hôte</a>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <strong>320</strong>
+            <span>Bacs actifs</span>
+          </div>
+          <div class="stat-card">
+            <strong>12k</strong>
+            <span>Utilisateurs</span>
+          </div>
+          <div class="stat-card">
+            <strong>68</strong>
+            <span>Ressources validées</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="mini-card">
+          <span class="status-pill success">Disponible</span>
+          <h3>Bac du quartier</h3>
+          <p>8 min à pied • 52 % de capacité</p>
+          <div class="progress"><span style="width:52%"></span></div>
+        </div>
+        <div class="mini-card accent">
+          <span class="status-pill warning">À vérifier</span>
+          <h3>Signalements</h3>
+          <p>3 alertes aujourd'hui</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-panel">
+      <h2>Comment ça marche ?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">C</div>
+          <h3>Carte interactive</h3>
+          <p>Consultez tous les bacs à proximité et leurs statuts en temps réel.</p>
+          <a href="carte.html" class="btn btn-secondary btn-small">Explorer la carte</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">R</div>
+          <h3>Bibliothèque</h3>
+          <p>Accédez à des guides, vidéos et ressources validées par la communauté.</p>
+          <a href="bibliotheque.html" class="btn btn-secondary btn-small">Consulter</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">H</div>
+          <h3>Espace hôte</h3>
+          <p>Publiez votre bac et gérez votre espace de compostage facilement.</p>
+          <a href="host.html" class="btn btn-secondary btn-small">Commencer</a>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">A</div>
+          <h3>Admin & Modération</h3>
+          <p>Accédez au panneau de contrôle pour superviser et modérer le contenu.</p>
+          <a href="connexion.html" class="btn btn-secondary btn-small">Se connecter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>

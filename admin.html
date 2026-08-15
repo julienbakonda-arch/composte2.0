@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>compostage2.0 — Admin</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+   <div class="brand">
+      
+      <img src="iconify.png" alt="Compostage 2.0 - Logo" class="logo-img">
+      <img src="logo.png" alt="Compostage 2.0 - Logo" class="logo-img">
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">Carte</a>
+      <a href="bibliotheque.html">Bibliothèque</a>
+      <a href="host.html">Espace hôte</a>
+      <a href="admin.html" class="btn btn-primary btn-small">Admin</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section id="admin" class="panel admin-panel">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Panneau d'administration</span>
+          <h2>Supervision et modération</h2>
+        </div>
+        <button id="logout-btn" type="button" class="btn btn-warning btn-small">Déconnexion</button>
+      </div>
+
+      <div class="admin-tabs" role="tablist" aria-label="Sections admin">
+        <button type="button" class="tab-button active" data-tab="hosts">Hôtes</button>
+        <button type="button" class="tab-button" data-tab="reports">Signalements</button>
+        <button type="button" class="tab-button" data-tab="library">Bibliothèque</button>
+      </div>
+
+      <div class="admin-content">
+        <div id="hosts-panel" class="admin-panel-section active">
+          <div class="admin-list" id="admin-hosts-list"></div>
+        </div>
+
+        <div id="reports-panel" class="admin-panel-section">
+          <div class="admin-list" id="admin-reports-list"></div>
+        </div>
+
+        <div id="library-panel" class="admin-panel-section">
+          <div class="admin-list" id="admin-library-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>

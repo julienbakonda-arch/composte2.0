@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>compostage2.0 — Carte</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+</head>
+<body>
+  <header class="topbar"  style="z-index: 1000;">
+   <div class="brand">
+      
+      <img src="iconify.png" alt="Compostage 2.0 - Logo" class="logo-img">
+      <img src="logo.png" alt="Compostage 2.0 - Logo" class="logo-img">
+    </div>
+    <nav class="main-nav d-flex align-items-center flex-wrap gap-2" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">Carte</a>
+      <a href="bibliotheque.html">Bibliothèque</a>
+      <a href="host.html">Espace hôte</a>
+      <a href="connexion.html" class="btn btn-primary btn-small">Connexion</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section id="carte" class="panel">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Carte publique</span>
+          <h2>Les bacs aux alentours</h2>
+        </div>
+        <div class="inline-actions">
+          <button id="locate-btn" type="button" class="btn btn-primary">Ma position</button>
+          <button id="report-btn" type="button" class="btn btn-warning">Signaler</button>
+        </div>
+      </div>
+
+      <div class="map-layout">
+        <div id="map" aria-label="Carte des bacs"></div>
+        <aside class="host-list" id="host-list"></aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="report-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="report-modal-title" style="z-index: 9999;">
+    <div class="modal-card" >
+      <div class="modal-header">
+        <h3 id="report-modal-title">Signaler une position</h3>
+        <button type="button" class="close-modal" data-close="report-modal">×</button>
+      </div>
+      <form id="report-form">
+        <label>
+          Bac concerné
+          <select id="report-host-select" name="hostId" required></select>
+        </label>
+        <label>
+          Motif
+          <select name="reason" required>
+            <option value="Emplacement incorrect">Emplacement incorrect</option>
+            <option value="Danger">Danger</option>
+            <option value="Informations incohérentes">Informations incohérentes</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </label>
+        <label>
+          Détails
+          <textarea name="details" rows="4" placeholder="Précisez le problème observé..." required></textarea>
+        </label>
+        <button type="submit" class="btn btn-warning submit-btn">Envoyer le signalement</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/carte.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>

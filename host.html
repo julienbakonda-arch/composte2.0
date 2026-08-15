@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>compostage2.0 — Espace hôte</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <header class="topbar">
+   <div class="brand">
+      
+      <img src="iconify.png" alt="Compostage 2.0 - Logo" class="logo-img">
+      <img src="logo.png" alt="Compostage 2.0 - Logo" class="logo-img">
+    </div>
+    <nav class="main-nav d-flex align-items-center flex-wrap gap-2" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">Carte</a>
+      <a href="bibliotheque.html">Bibliothèque</a>
+      <a href="host.html">Espace hôte</a>
+      <a href="connexion.html" class="btn btn-primary btn-small">Connexion</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section id="host-space" class="panel host-panel">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Espace hôte</span>
+          <h2>Créer un compte et qualifier votre espace</h2>
+        </div>
+        <div id="host-session-state" class="session-pill">Visiteur</div>
+      </div>
+
+      <div class="host-grid">
+        <form id="host-form" class="host-form">
+          <div class="field-row two-col">
+            <label>
+              Type d'espace
+              <select name="spaceType" required>
+                <option value="">Sélectionner</option>
+                <option value="Balcon">Balcon</option>
+                <option value="Jardin">Jardin</option>
+                <option value="Cour">Cour</option>
+                <option value="Terrain partagé">Terrain partagé</option>
+              </select>
+            </label>
+            <label>
+              Expérience
+              <select name="experience" required>
+                <option value="">Sélectionner</option>
+                <option value="Débutant">Débutant</option>
+                <option value="1 à 2 ans">1 à 2 ans</option>
+                <option value="3 ans et +">3 ans et +</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="field-row two-col">
+            <label>
+              Matériel utilisé
+              <input type="text" name="material" placeholder="Composteur, paillis, broyage..." required>
+            </label>
+            <label>
+              Capacité d'accueil
+              <input type="number" name="capacity" min="1" max="500" placeholder="Ex: 40" required>
+            </label>
+          </div>
+
+          <label>
+            Nom de l'espace
+            <input type="text" name="hostName" placeholder="Ex: Bac de la rue de l'Amitié" required>
+          </label>
+
+          <div class="gps-box">
+            <div>
+              <span class="label-small">Position GPS</span>
+              <div class="coords-row">
+                <input id="lat-value" type="text" readonly placeholder="Latitude">
+                <input id="lng-value" type="text" readonly placeholder="Longitude">
+              </div>
+            </div>
+            <div id="host-map" aria-label="Carte de sélection de position"></div>
+          </div>
+
+          <label>
+            État du bac
+            <select name="status" required>
+              <option value="Disponible">Disponible</option>
+              <option value="Presque plein">Presque plein</option>
+              <option value="Plein / En maturation">Plein / En maturation</option>
+            </select>
+          </label>
+
+          <button type="submit" class="btn btn-primary submit-btn">Publier le bac</button>
+        </form>
+
+        <aside class="host-side-card">
+          <h3>Ce que vous pouvez gérer</h3>
+          <ul>
+            <li>Qualifier votre espace et votre expérience.</li>
+            <li>Définir la position exacte avec un clic sur la carte.</li>
+            <li>Mettre à jour le statut du bac d'un seul clic.</li>
+            <li>Recevoir des signalements et réagir rapidement.</li>
+          </ul>
+          <div class="info-box">
+            <strong>Règles</strong>
+            <p>Les positions douteuses sont visibles dans la section de modération et peuvent être suspendues automatiquement après plusieurs signalements.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/host.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+  </script>
+</body>
+</html>
